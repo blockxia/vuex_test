@@ -1,3 +1,7 @@
 export default {
-  todos: []
+ firstView:true,
+  loading:false,
+  errorMsg:null,
+  users:null
+
 }
