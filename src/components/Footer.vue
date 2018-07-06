@@ -12,29 +12,28 @@
 </template>
 
 <script>
-  import {mapGetters,mapActions} from 'vuex'
+  import {mapGetters, mapActions} from 'vuex'
 
   export default {
-    computed:{
-      ...mapGetters(['totalCount','completeCount']),
-      isAllComplete:{
-        get(){
+    // props: ['todos', 'selectAll', 'clearAllCompleted'],
+
+    computed: {
+
+      ...mapGetters(['totalCount', 'completeCount']),
+
+      isAllComplete: {
+        get () {
           return this.$store.getters.isAllComplete
         },
-        set(value){
-//           this.dispatch('selectAll',value)
+        set (value) {
+          // this.$store.dispatch('selectAll', value)
           this.selectAll(value)
         }
       }
     },
-    methods:{
-//      ...mapActions(['clearAllCompleted'])
-      ...mapActions(['clearAllCompleted','selectAll'])
 
-    /*  clearAllCompleted(){
-        this.$store.dispatch('clearAllCompleted')
-      }*/
-
+    methods: {
+      ...mapActions(['clearAllCompleted', 'selectAll'])
     }
   }
 </script>

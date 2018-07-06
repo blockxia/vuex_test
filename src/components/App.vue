@@ -1,9 +1,9 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <todo-header/>
-      <List />
-      <todo-footer/>
+      <todos-header/>
+      <List/>
+      <todos-footer/>
     </div>
   </div>
 </template>
@@ -13,19 +13,20 @@
   import List from './List.vue'
   import Footer from './Footer.vue'
 
-  export default { // 配置对象
-    mounted(){
+  export default {
+    mounted() {
       this.$store.dispatch('readTodos')
     },
+
     components: {
-      TodoHeader:Header,
+      'todos-header': Header,
       List,
-      TodoFooter: Footer
-    },
+      'todos-footer': Footer
+    }
   }
 </script>
 
-<style scoped>
+<style>
   .todo-container {
     width: 600px;
     margin: 0 auto;

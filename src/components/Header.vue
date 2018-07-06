@@ -12,30 +12,29 @@
         inputTodo: ''
       }
     },
+
     methods: {
       add () {
-        // 读取输入数据
         const inputTodo = this.inputTodo.trim()
-        // 合法性检查
         if(!inputTodo) {
           return
         }
-        // 封装todo对象
+
+        // 根据输入封装todo对象
         const todo = {
           title: inputTodo,
-          completed: false
+          complete: false
         }
-        // 添加到todos中
-        this.$store.dispatch('addTodo',todo)
+        // 添加到todos
+        this.$store.dispatch('addTodo', todo)
         // 清除输入
         this.inputTodo = ''
       }
     }
-
   }
 </script>
 
-<style scoped>
+<style>
   .todo-header input {
     width: 560px;
     height: 28px;

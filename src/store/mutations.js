@@ -1,27 +1,35 @@
 import {
   ADD_TOTO,
   DELETE_TODO,
-  RECEIVE_TODOS,
+  SELECT_ALL,
   CLEAR_ALL_COMPLETED,
-  SELECT_ALL
+  RECEIVE_TODOS
 } from './mutation-types'
 
-
 export default {
-  [ADD_TOTO](state,{todo}){
+
+  // 添加todo
+  [ADD_TOTO](state, {todo}) {
     state.todos.unshift(todo)
   },
-  [DELETE_TODO](state,{index}){
-    state.todos.splice(index,1)
+
+  // 删除todo
+  [DELETE_TODO] (state, {index}) {
+    state.todos.splice(index, 1)
   },
 
-  [SELECT_ALL](state,{check}){
-    state.todos.forEach(todo=>todo.complete=check)
+  // 全选/全不选
+  [SELECT_ALL] (state, {check}) {
+    state.todos.forEach(todo => todo.complete = check)
   },
-  [CLEAR_ALL_COMPLETED](state){
-    state.todos=state.todos.filter(todo=>!todo.complete)
+
+  // 清除所有已完成的
+  [CLEAR_ALL_COMPLETED] (state) {
+    state.todos = state.todos.filter(todo => !todo.complete)
   },
-  [RECEIVE_TODOS](state,{todos}){
-    state.todos=todos
+
+  // 接收一个新的todos
+  [RECEIVE_TODOS] (state, {todos}) {
+    state.todos = todos
   }
 }
